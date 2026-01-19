@@ -1,4 +1,7 @@
 import { useNavigate } from "react-router-dom";
+import ImageList from "@mui/material/ImageList";
+import ImageListItem from "@mui/material/ImageListItem";
+import ImageListItemBar from "@mui/material/ImageListItemBar";
 
 function Home() {
   const navigate = useNavigate();
@@ -6,16 +9,33 @@ function Home() {
   const handleRedirect = () => {
     navigate("/projects");
   };
+  const profileData = [
+    {
+      img: "./src/assets/images/profile.jpeg", // local path
+      title: "Jiban Neupane",
+      subtitle: "Frontend Developer || React & TypeScript",
+    },
+  ];
   return (
     <>
       <div>
-        <h1>Jiban Neupane</h1>
-        <img
-          src="./src/assets/images/profile.jpeg"
-          alt="Jiban Neupane"
-          width={300}
-        />
-        <h2>Frontend Developer || React & TypeScript</h2>
+        <ImageList sx={{ width: 350, height: 400 }} cols={1} rowHeight={350}>
+          {profileData.map((item) => (
+            <ImageListItem key={item.img}>
+              <img
+                src={item.img}
+                alt={item.title}
+                loading="lazy"
+                style={{ borderRadius: "8px" }}
+              />
+              <ImageListItemBar
+                title={item.title}
+                subtitle={item.subtitle}
+                position="below"
+              />
+            </ImageListItem>
+          ))}
+        </ImageList>
         <p>
           I build clean, responsive, and user-friendly web applications using
           modern frontend technologies, with a strong focus on usability and
