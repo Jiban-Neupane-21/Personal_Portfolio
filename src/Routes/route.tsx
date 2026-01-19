@@ -1,5 +1,5 @@
 import Home from "../pages/Home";
-import About from "../pages/About";
+import Blog from "../pages/Blog";
 import Contact from "../pages/Contact";
 import Education from "../pages/Education";
 import Project from "../pages/Project";
@@ -12,7 +12,7 @@ function AppRoutes() {
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/education" element={<Education />} />
           <Route path="/projects" element={<Project />} />
