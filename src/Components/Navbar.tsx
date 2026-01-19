@@ -6,7 +6,7 @@ import SystemSecurityUpdateGoodIcon from "@mui/icons-material/SystemSecurityUpda
 
 function Navbar() {
   return (
-    <nav>
+    <nav className="navbar-container fixed top-0 left-0 right-0 p-6 bg-gray-800 text-white z-50">
       <NavLink to="/">
         <HomeIcon />
       </NavLink>
