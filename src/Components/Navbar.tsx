@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import BookIcon from "@mui/icons-material/Book";
-import ContactMailIcon from "@mui/icons-material/ContactMail";
 import SchoolIcon from "@mui/icons-material/School";
 import SystemSecurityUpdateGoodIcon from "@mui/icons-material/SystemSecurityUpdateGood";
 
@@ -14,10 +13,6 @@ function Navbar() {
 
       <NavLink to="/blog">
         <BookIcon />
-      </NavLink>
-
-      <NavLink to="/contact">
-        <ContactMailIcon />
       </NavLink>
 
       <NavLink to="/education">
