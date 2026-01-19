@@ -79,11 +79,11 @@ export default function Navbar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="fixed"
-        elevation={0} // Instagram uses a flat design
+        elevation={0} 
         sx={{
           backgroundColor: "#131212",
           color: "#f9f1f1",
-          borderBottom: "1px solid #dbdbdb", // That signature thin Instagram separator
+          borderBottom: "1px solid #dbdbdb",
         }}
       >
         {" "}
