@@ -35,7 +35,19 @@ export default function Navbar() {
   ];
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+    <Box
+      onClick={handleDrawerToggle}
+      sx={{
+        height: "100%",
+        textAlign: "center",
+        color: "#fff",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        p: 2,
+        gap: 2,
+      }}
+    >
       <Typography variant="h6" sx={{ my: 2 }}>
         Jiban Neupane
       </Typography>
@@ -47,23 +59,22 @@ export default function Navbar() {
             to={item.path}
             sx={{
               borderRadius: "8px",
-              mb: 0.5,
-              mx: 1,
-              width: "auto",
+              width: "full",
               color: "inherit",
               textDecoration: "none",
               "&.active": {
-                backgroundColor: "rgba(225, 48, 108, 0.1)",
-                color: "#e1306c",
+                width: "100%",
+                backgroundColor: "rgba(58, 57, 62, 0.62)",
+                color: "#fffafac4",
                 "& .MuiListItemIcon-root": {
-                  color: "#e1306c",
+                  color: "#050505",
                 },
                 "& .MuiListItemText-primary": {
                   fontWeight: "bold",
                 },
               },
               "&:hover": {
-                backgroundColor: "rgba(0, 0, 0, 0.04)",
+                backgroundColor: "rgba(91, 87, 87, 0.37)",
               },
             }}
           >
@@ -79,11 +90,14 @@ export default function Navbar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="fixed"
-        elevation={0} 
+        elevation={0}
         sx={{
-          backgroundColor: "#131212",
-          color: "#f9f1f1",
-          borderBottom: "1px solid #dbdbdb",
+          background:
+            "linear-gradient(180deg, rgba(20, 38, 56, 0.48), rgba(0, 0, 0, 0.6), transparent)",
+          backdropFilter: "blur(10px)",
+          WebkitBackdropFilter: "blur(10px)",
+          color: "#e1d8d8",
+          borderBottom: "1px solid rgba(255, 255, 255, 0.2)",
         }}
       >
         {" "}
@@ -128,12 +142,12 @@ export default function Navbar() {
                 key={item.text}
                 to={item.path}
                 style={({ isActive }) => ({
-                  color: "white",
+                  color: "inherit",
                   display: "flex",
                   alignItems: "center",
                   textDecoration: "none",
                   gap: "4px",
-                  borderBottom: isActive ? "2px solid #fff" : "none",
+                  borderBottom: isActive ? "2px solid #ccc8c8" : "none",
                 })}
               >
                 {item.icon}
@@ -151,7 +165,19 @@ export default function Navbar() {
         onClose={handleDrawerToggle}
         sx={{
           display: { xs: "block", sm: "none" },
-          "& .MuiDrawer-paper": { boxSizing: "border-box", width: 200 },
+          "& .MuiDrawer-paper": {
+            boxSizing: "border-box",
+            width: "fit-content",
+            background:
+              "linear-gradient(180deg, rgba(0,128,255,0.25), rgba(0,0,0,0.6), transparent)",
+            backdropFilter: "blur(14px)",
+            WebkitBackdropFilter: "blur(14px)",
+            border: "1px solid rgba(255,255,255,0.2)",
+            borderRadius: { xs: "0px", sm: "0px 20px 20px 0px" },
+            boxShadow: "0 0 20px rgba(0,128,255,0.25)",
+            overflow: "hidden",
+            transition: "all 0.3s ease-in-out",
+          },
         }}
       >
         {drawer}
