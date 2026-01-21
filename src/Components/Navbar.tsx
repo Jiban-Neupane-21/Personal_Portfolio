@@ -42,6 +42,7 @@ export default function Navbar() {
         textAlign: "center",
         color: "#fff",
         display: "flex",
+        
         flexDirection: "column",
         justifyContent: "flex-start",
         p: 2,
@@ -165,6 +166,7 @@ export default function Navbar() {
         onClose={handleDrawerToggle}
         sx={{
           display: { xs: "block", sm: "none" },
+          
           "& .MuiDrawer-paper": {
             boxSizing: "border-box",
             width: "fit-content",

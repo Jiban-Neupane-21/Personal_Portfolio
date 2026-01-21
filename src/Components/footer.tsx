@@ -1,12 +1,12 @@
 import React from "react";
+import { Box, Typography, Link, Stack, IconButton } from "@mui/material";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import { Facebook } from "@mui/icons-material";
+import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
-// Optional: You can define a type for contact item
 type ContactItem = {
   icon: React.ReactNode;
   label: string;
@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
       href: "https://github.com/Neuz-Badxhah",
     },
     {
-      icon: <Facebook />,
+      icon: <FacebookIcon />,
       label: "Facebook",
       href: "https://www.facebook.com/neuzbadxhah",
     },
@@ -48,27 +48,82 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="footer-container fixed bottom-0 left-0 right-0 p-6 bg-gray-800 text-white z-50">
-      <h3 className="text-xl font-semibold mb-4">Contact Me</h3>
-      <ul className="contact-list space-y-2">
+    <Box
+      component="footer"
+      sx={{
+        width: "100%",
+        py: 5,
+        px: { xs: 2, md: 8 },
+        background: `
+          radial-gradient(circle at top, rgba(56,189,248,0.15), transparent 40%),
+          linear-gradient(135deg, #020617, #0f172a)
+        `,
+        color: "#e0e0e0",
+        borderTop: "1px solid rgba(0, 255, 255, 0.2)",
+        mt: 10,
+      }}
+    >
+      <Typography
+        variant="h6"
+        sx={{
+          color: "#00f0ff",
+          fontWeight: 700,
+          mb: 3,
+          letterSpacing: 1,
+        }}
+      >
+        Contact Me
+      </Typography>
+
+      <Stack
+        direction={{ xs: "column", sm: "row" }}
+        spacing={3}
+        flexWrap="wrap"
+        alignItems="center"
+      >
         {contactItems.map((item, index) => (
-          <li key={index} className="flex items-center space-x-2">
-            {item.icon}
-            <a
-              href={item.href}
-              target={item.href.startsWith("http") ? "_blank" : undefined}
-              rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-              className="hover:text-blue-400"
+          <Link
+            key={index}
+            href={item.href}
+            target={item.href.startsWith("http") ? "_blank" : undefined}
+            rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+            underline="none"
+            sx={{
+              display: "flex",
+              flex: "1 1 auto",
+              alignItems: "center",
+              gap: 1,
+              color: "#e0e0e0",
+              transition: "all 0.3s ease",
+              "&:hover": {
+                color: "#00c8ffa3",
+                transform: "translateY(-3px)",
+              },
+            }}
+          >
+            <IconButton
+              sx={{
+                color: "inherit",
+                transition: "all 0.3s ease",
+                "&:hover": { color: "#00f0ff", transform: "scale(1.2)" },
+                p: 0,
+                mr: 0.5,
+              }}
             >
-              {item.label}
-            </a>
-          </li>
+              {item.icon}
+            </IconButton>
+            <Typography sx={{ fontSize: "0.9rem" }}>{item.label}</Typography>
+          </Link>
         ))}
-      </ul>
-      <p className="mt-4 text-sm">
-        &copy; 2026 Your Name. All rights reserved.
-      </p>
-    </footer>
+      </Stack>
+
+      <Typography
+        variant="body2"
+        sx={{ mt: 4, textAlign: "center", opacity: 0.6, fontSize: "0.8rem" }}
+      >
+        &copy; 2026 Neuz Badxhah. All rights reserved.
+      </Typography>
+    </Box>
   );
 };
 
