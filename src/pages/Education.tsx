@@ -30,10 +30,7 @@ function Education() {
         sx={{
           position: "absolute",
           inset: 0,
-          // backgroundImage: `
-          //   linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-          //   linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)
-          // `,
+          
           backgroundSize: "40px 40px",
           maskImage:
             "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)",
@@ -78,7 +75,7 @@ function Education() {
             </Typography>
 
             <Grid container spacing={3}>
-              <Grid item xs={12} md={6}>
+              <Grid size={{ xs: 12, md: 6 }}>
                 <Typography variant="h6" color="#e5e7eb" gutterBottom>
                   Key Courses
                 </Typography>
@@ -105,7 +102,7 @@ function Education() {
                 </List>
               </Grid>
 
-              <Grid item xs={12} md={6}>
+              <Grid size={{ xs: 12, md: 6 }}>
                 <Typography variant="h6" color="#e5e7eb" gutterBottom>
                   Practical Exposure
                 </Typography>
