@@ -8,7 +8,10 @@ export default function Home() {
     <Box
       sx={{
         minHeight: "100vh",
-        background: "linear-gradient(135deg, #0f2027, #203a43, #2c5364)",
+        background: `
+          radial-gradient(circle at top, rgba(56,189,248,0.15), transparent 40%),
+          linear-gradient(135deg, #020617, #0f172a)
+        `,
         color: "#fff",
         px: { xs: 2, md: 6 },
         pt: 12,
@@ -115,8 +118,10 @@ export default function Home() {
             opacity: 0.8,
           }}
         >
-          I build clean, responsive, and high-performance web applications with
-          modern frontend technologies and strong UI/UX principles.
+          Frontend Developer focused on building responsive and user-friendly
+          web applications using React and TypeScript. I enjoy creating clean UI
+          designs, learning new technologies, and turning ideas into real-world
+          digital experiences.
         </Typography>
       </Box>
 

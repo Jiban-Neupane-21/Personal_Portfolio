@@ -9,7 +9,6 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Chip,
 } from "@mui/material";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import CodeIcon from "@mui/icons-material/Code";
@@ -27,13 +26,14 @@ function Blog() {
   return (
     <Box
       sx={{
-        width: "100%",
-        minHeight: "100vh",
         py: 8,
         px: { xs: 2, sm: 4, md: 8 },
         color: "#e0e0e0",
         fontFamily: "'Roboto Mono', monospace",
-        backgroundColor: "#0d0d0d",
+        background: `
+          radial-gradient(circle at top, rgba(56,189,248,0.15), transparent 40%),
+          linear-gradient(135deg, #020617, #0f172a)
+        `,
       }}
     >
       {/* Hero Section */}
@@ -143,51 +143,6 @@ function Blog() {
             skills={["Shopify (Liquid)", "WordPress", "jQuery"]}
           />
         </Grid>
-      </SectionCard>
-
-      {/* Programming Languages & Tools */}
-      <SectionCard title="Programming Languages & Tools">
-        <Typography sx={{ mb: 2, opacity: 0.8 }}>
-          The main languages used in Nepal branch:
-        </Typography>
-        <Grid container spacing={2}>
-          <TechCategory
-            title="Front-End"
-            icon={<CodeIcon sx={{ color: "#00f0ff" }} />}
-            skills={["JavaScript", "TypeScript", "React.js", "Angular"]}
-          />
-          <TechCategory
-            title="Back-End"
-            icon={<StorageIcon sx={{ color: "#00f0ff" }} />}
-            skills={["Node.js", "Express.js"]}
-          />
-          <TechCategory
-            title="Mobile"
-            icon={<SmartphoneIcon sx={{ color: "#00f0ff" }} />}
-            skills={["React Native", "Flutter", "Swift", "Kotlin"]}
-          />
-          <TechCategory
-            title="E-Commerce"
-            icon={<TerminalIcon sx={{ color: "#00f0ff" }} />}
-            skills={["Liquid", "jQuery"]}
-          />
-        </Grid>
-        <Stack direction="row" spacing={2} mt={4} flexWrap="wrap">
-          {["Git", "HTML5/CSS3", "SQL/NoSQL", "DevOps", "QA Testing"].map(
-            (tool) => (
-              <Chip
-                key={tool}
-                label={tool}
-                variant="outlined"
-                sx={{
-                  color: "#fff",
-                  borderColor: "rgba(255,255,255,0.3)",
-                  mb: 1,
-                }}
-              />
-            ),
-          )}
-        </Stack>
       </SectionCard>
 
       {/* Summary */}
