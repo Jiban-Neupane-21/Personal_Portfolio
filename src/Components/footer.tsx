@@ -60,7 +60,6 @@ function Footer() {
         `,
         color: "#e0e0e0",
         borderTop: "1px solid rgba(0, 255, 255, 0.2)",
-        mt: 10,
       }}
     >
       <Typography
