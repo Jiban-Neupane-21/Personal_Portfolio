@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Box, Typography, Paper, Button } from "@mui/material";
 
+
 export default function Home() {
   const navigate = useNavigate();
 

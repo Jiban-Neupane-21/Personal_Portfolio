@@ -8,8 +8,8 @@ function MainLayout() {
     <>
       <Snowfall color="white" style={{ opacity: 0.5 }} />
       <Navbar />
-      <main style={{ paddingTop: "64px" }}>
-        <Outlet />
+      <main style={{ paddingTop: "64px",  paddingBottom: "64px" }}>
+        <Outlet  />
       </main>
       <Footer />
     </>

@@ -42,7 +42,6 @@ export default function Navbar() {
         textAlign: "center",
         color: "#fff",
         display: "flex",
-        
         flexDirection: "column",
         justifyContent: "flex-start",
         p: 2,

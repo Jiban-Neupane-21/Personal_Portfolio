@@ -12,8 +12,7 @@ type ContactItem = {
   label: string;
   href: string;
 };
-
-const Footer: React.FC = () => {
+function Footer() {
   const contactItems: ContactItem[] = [
     {
       icon: <EmailIcon />,
@@ -50,10 +49,11 @@ const Footer: React.FC = () => {
   return (
     <Box
       component="footer"
+      position="fixed"
+      bottom={0}
       sx={{
         width: "100%",
-        py: 5,
-        px: { xs: 2, md: 8 },
+        p: 4,
         background: `
           radial-gradient(circle at top, rgba(56,189,248,0.15), transparent 40%),
           linear-gradient(135deg, #020617, #0f172a)
@@ -125,6 +125,6 @@ const Footer: React.FC = () => {
       </Typography>
     </Box>
   );
-};
+}
 
 export default Footer;
