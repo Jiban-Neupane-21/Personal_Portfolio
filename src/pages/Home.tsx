@@ -14,7 +14,7 @@ export default function Home() {
 
   const [text] = useTypewriter({
     words: ["Jiban Neupane"],
-    loop: true,
+    loop: false,
     typeSpeed: 90,
     deleteSpeed: 50,
     delaySpeed: 1000,

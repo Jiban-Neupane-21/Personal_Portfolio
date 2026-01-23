@@ -54,6 +54,7 @@ function ProjectsPage() {
             <Grid size={{ xs: 12, sm: 6, md: 4 }} key={project.title}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15, duration: 0.6 }}
