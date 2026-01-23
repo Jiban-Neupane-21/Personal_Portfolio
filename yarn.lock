@@ -2029,6 +2029,11 @@ react-router@7.12.0:
     cookie "^1.0.1"
     set-cookie-parser "^2.6.0"
 
+react-simple-typewriter@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/react-simple-typewriter/-/react-simple-typewriter-5.0.1.tgz#cfdb896c868a55ed4d5f1f06d62b3a9d0f5ad9d7"
+  integrity sha512-vA5HkABwJKL/DJ4RshSlY/igdr+FiVY4MLsSQYJX6FZG/f1/VwN4y1i3mPXRyfaswrvI8xii1kOVe1dYtO2Row==
+
 react-snowfall@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/react-snowfall/-/react-snowfall-2.4.0.tgz#79ad34431f2353e842a87be1af3f1f5355e25806"

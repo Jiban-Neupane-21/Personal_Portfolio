@@ -1,9 +1,73 @@
 import { useNavigate } from "react-router-dom";
-import { Box, Typography, Paper, Button } from "@mui/material";
+import { Box, Typography, Paper, Button, easing } from "@mui/material";
+import { motion } from "framer-motion";
+import { useTypewriter, Cursor } from "react-simple-typewriter";
 
+import { useCursorGlow } from "../Components/useCursorGlor";
+
+const MotionBox = motion(Box);
+const MotionPaper = motion(Paper);
+const MotionTypography = motion(Typography);
 
 export default function Home() {
   const navigate = useNavigate();
+
+  const [text] = useTypewriter({
+    words: ["Jiban Neupane"],
+    loop: true,
+    typeSpeed: 90,
+    deleteSpeed: 50,
+    delaySpeed: 1000,
+  });
+
+  /* ================= VARIANTS ================= */
+
+  const skillsContainer = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const skillCard = {
+    hidden: {
+      opacity: 0,
+      y: 30,
+      scale: 0.95,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.6, easing: easing.easeOut },
+    },
+    hover: {
+      y: -8,
+      transition: { duration: 0.3 },
+    },
+  };
+
+  const titleVariant = {
+    initial: { opacity: 0.6, x: 0 },
+    hover: { opacity: 1, x: 6 },
+  };
+
+  const lineVariant = {
+    initial: { width: 32 },
+    hover: { width: "100%" },
+  };
+  const glow = useCursorGlow();
+
+  /* ================= DATA ================= */
+
+  const skills = [
+    { title: "Frontend", skills: ["React", "TypeScript", "JavaScript", "MUI"] },
+    { title: "Backend", skills: ["Node.js", "Express"] },
+    { title: "Database", skills: ["MongoDB", "MySQL"] },
+    { title: "Other", skills: ["Git", "GitHub", "Responsive UI"] },
+  ];
 
   return (
     <Box
@@ -16,39 +80,36 @@ export default function Home() {
         color: "#fff",
         px: { xs: 2, md: 6 },
         pt: 12,
-        borderRadius: "10px",
       }}
     >
-      {/* ================= HERO SECTION ================= */}
-      <Box
+      {/* ================= HERO ================= */}
+      <MotionBox
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
         sx={{
           display: "flex",
           flexDirection: { xs: "column", md: "row" },
           alignItems: "center",
           justifyContent: "space-between",
-          textAlign: { xs: "center", md: "left" },
-          gap: 4,
-          mb: 8,
+          gap: 6,
+          mb: 10,
         }}
       >
-        <Paper
-          elevation={8}
+        <MotionPaper
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.3 }}
+          whileHover={{ scale: 1.06 }}
           sx={{
             width: 300,
             height: 300,
-            mx: "auto",
-            mb: 3,
-            float: "right",
-            borderRadius: "20px",
+            borderRadius: "22px",
             overflow: "hidden",
-            background: "rgba(255,255,255,0.08)",
-            backdropFilter: "blur(12px)",
-            border: "1px solid rgba(255,255,255,0.25)",
-            ":hover": {
-              boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.37)",
-              transform: "scale(1.05)",
-              transition: "all 0.3s ease-in-out",
-            },
+            background: "rgba(255,255,255,0.06)",
+            backdropFilter: "blur(14px)",
+            border: "1px solid rgba(255,255,255,0.2)",
+            boxShadow: "0 0 40px rgba(56,189,248,0.25)",
           }}
         >
           <Box
@@ -59,169 +120,110 @@ export default function Home() {
               width: "100%",
               height: "100%",
               objectFit: "cover",
-              borderRadius: "20px",
+              transition: "0.5s",
+              "&:hover": { transform: "scale(1.08)" },
             }}
           />
-        </Paper>
+        </MotionPaper>
 
-        <Typography
-          variant="h4"
-          fontWeight="bold"
-          sx={{
-            overflow: "hidden",
-            whiteSpace: "nowrap",
-            borderRight: "3px solid #00c6ff",
-            width: "0",
-            animation:
-              "typing 2.5s steps(14, end) forwards, blink 0.7s infinite",
-            "@keyframes typing": {
-              from: { width: "0" },
-              to: { width: "14ch" }, // number of characters
-            },
-            "@keyframes blink": {
-              "0%": { borderColor: "transparent" },
-              "50%": { borderColor: "#00c6ff" },
-              "100%": { borderColor: "transparent" },
-            },
-          }}
-        >
-          Jiban Neupane
-        </Typography>
+        <Box textAlign={{ xs: "center", md: "left" }}>
+          <Typography variant="h3" fontWeight={800}>
+            {text}
+            <Cursor />
+          </Typography>
 
-        <Typography
-          variant="subtitle1"
-          sx={{
-            opacity: 0,
-            mb: 2,
-            animation: "fadeUp 1.8s ease forwards",
-            animationDelay: "2.8s",
-            "@keyframes fadeUp": {
-              from: {
-                opacity: 0,
-                transform: "translateY(20px)",
-              },
-              to: {
-                opacity: 0.85,
-                transform: "translateY(0)",
-              },
-            },
-          }}
-        >
-          Frontend Developer • React • TypeScript
-        </Typography>
-      </Box>
+          <Typography sx={{ color: "#94a3b8", mt: 1 }}>
+            Frontend Developer • React • TypeScript
+          </Typography>
 
-      <Box sx={{ textAlign: "center", mb: 8 }}>
-        <Typography
-          sx={{
-            maxWidth: 700,
-            mx: "auto",
-            opacity: 0.8,
-          }}
-        >
-          Frontend Developer focused on building responsive and user-friendly
-          web applications using React and TypeScript. I enjoy creating clean UI
-          designs, learning new technologies, and turning ideas into real-world
-          digital experiences.
-        </Typography>
-      </Box>
+          <Typography sx={{ mt: 2, maxWidth: 420, opacity: 0.8 }}>
+            Crafting clean, scalable, and modern web interfaces with a focus on
+            performance and user experience.
+          </Typography>
+        </Box>
+      </MotionBox>
 
-      <Box
+      {/* ================= SKILLS ================= */}
+
+      <MotionBox
+        variants={skillsContainer}
+        initial="hidden"
+        whileInView="visible"
+        onMouseMove={glow.handleMouseMove}
+        viewport={{ once: true }}
         sx={{
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "center",
-          gap: 4, // Increased gap for a more airy feel
-          mb: 8,
+          gap: 4,
+          mb: 10,
         }}
       >
-        {[
-          {
-            title: "Frontend",
-            skills: ["React", "TypeScript", "JavaScript", "MUI"],
-          },
-          { title: "Backend", skills: ["Node.js", "Express"] },
-          { title: "Database", skills: ["MongoDB", "MySQL"] },
-          { title: "Other", skills: ["Git", "GitHub", "Responsive UI"] },
-        ].map((item, index) => (
-          <Box
+        {skills.map((item) => (
+          <MotionBox
             key={item.title}
+            variants={skillCard}
+            whileHover="hover"
             sx={{
               flex: { xs: "1 1 100%", sm: "1 1 45%", md: "1 1 21%" },
               position: "relative",
-              p: 3,
-              transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
-              opacity: 0,
-              animation: "fadeUp 0.8s ease forwards",
-              animationDelay: `${index * 0.15}s`,
-
-              // Stylish Techie Border: Only top and bottom with a slight glow
-              borderTop: "1px solid rgba(0, 240, 255, 0.2)",
-              borderBottom: "1px solid rgba(0, 240, 255, 0.05)",
+              px: 3,
+              pt: 3,
+              pb: 3.5,
+              borderRadius: "14px",
               background:
-                "linear-gradient(180deg, rgba(0,240,255,0.03) 0%, rgba(0,0,0,0) 100%)",
-
-              "&:hover": {
-                transform: "translateY(-5px)",
-                borderTop: "1px solid #75a0a3c9",
-                background:
-                  "linear-gradient(180deg, rgba(0,240,255,0.08) 0%, rgba(0,0,0,0) 10%)",
-                "& .tech-line": { width: "100%" },
-              },
+                "linear-gradient(180deg, rgba(0,240,255,0.04), transparent)",
+              borderTop: "1px solid rgba(0,240,255,0.25)",
+              borderBottom: "1px solid rgba(0,240,255,0.08)",
             }}
           >
-            {/* Animated accent line that grows on hover */}
-            <Box
-              className="tech-line"
+            {/* Accent Line */}
+            <MotionBox
+              variants={lineVariant}
+              transition={{ duration: 0.4 }}
               sx={{
                 position: "absolute",
-                top: -1,
+                top: 0,
                 left: 0,
                 height: "2px",
-                width: "30px",
-                background: "#46cbdfaa",
-                boxShadow: "1 1 5px #9eb8eb",
-                transition: "width 0.4s ease",
+                background: "#00f0ff",
+                boxShadow: "0 0 12px rgba(0,240,255,0.6)",
               }}
             />
 
-            <Typography
-              fontWeight="800"
-              mb={2.5}
+            {/* Title */}
+            <MotionTypography
+              variants={titleVariant}
               sx={{
-                fontSize: "1rem",
-                fontWeight: "bold",
-                letterSpacing: "2px",
+                mb: 2.5,
+                fontSize: "0.85rem",
+                fontWeight: 800,
+                letterSpacing: "2.5px",
                 textTransform: "uppercase",
-                color: "rgba(255,255,255,0.6)", // Subdued title
+                color: "rgba(255,255,255,0.55)",
               }}
             >
               {item.title}
-            </Typography>
+            </MotionTypography>
 
-            <Box
-              sx={{
-                display: "flex",
-                gap: 1.5,
-                flexWrap: "wrap",
-              }}
-            >
+            {/* Skills */}
+            <Box sx={{ display: "flex", gap: 1.2, flexWrap: "wrap" }}>
               {item.skills.map((skill) => (
                 <Typography
                   key={skill}
                   sx={{
-                    fontSize: "0.9rem",
-                    color: "#00f0ff",
-                    fontWeight: "500",
                     fontFamily: "monospace",
+                    fontSize: "0.85rem",
+                    color: "#00f0ff",
                     px: 1.5,
-                    py: 0.5,
+                    py: 0.4,
                     borderRadius: "4px",
-                    background: "rgba(0, 240, 255, 0.05)",
+                    background: "rgba(0,240,255,0.06)",
                     transition: "0.3s",
                     "&:hover": {
-                      background: "rgba(0, 240, 255, 0.2)",
+                      background: "rgba(0,240,255,0.2)",
                       color: "#fff",
+                      boxShadow: "0 0 10px rgba(0,240,255,0.5)",
                     },
                   }}
                 >
@@ -229,11 +231,10 @@ export default function Home() {
                 </Typography>
               ))}
             </Box>
-          </Box>
+          </MotionBox>
         ))}
-      </Box>
+      </MotionBox>
 
-      {/* ================= PROJECTS SECTION ================= */}
       <Box
         sx={{
           p: { xs: 2, md: 4 },
@@ -277,7 +278,7 @@ export default function Home() {
               position: "relative",
               pl: 3, // Space for the accent line
               transition: "all 0.3s ease",
-              opacity: 0,
+              // opacity: ,
               animation: "fadeUp 0.6s ease forwards",
               animationDelay: `${index * 0.2}s`,
               borderLeft: "2px solid rgba(0, 240, 255, 0.1)",
@@ -312,29 +313,17 @@ export default function Home() {
           </Box>
         ))}
 
-        <Box sx={{ mt: 6 }}>
+        {/* CTA */}
+        <Box textAlign="center">
           <Button
             onClick={() => navigate("/projects")}
             sx={{
-              p: 0,
               color: "#00c6ff",
-              textTransform: "none",
-              fontWeight: "600",
-              fontSize: "1rem",
-              "&:hover": {
-                background: "transparent",
-                color: "#fff",
-                "& .arrow": { transform: "translateX(5px)" },
-              },
+              fontWeight: 600,
+              "&:hover": { color: "#fff" },
             }}
           >
-            View All Projects{" "}
-            <span
-              className="arrow"
-              style={{ transition: "0.3s", marginLeft: "8px" }}
-            >
-              →
-            </span>
+            View All Projects →
           </Button>
         </Box>
       </Box>
