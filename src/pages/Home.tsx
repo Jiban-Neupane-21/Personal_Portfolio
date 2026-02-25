@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { Box, Typography, Paper, Button, easing } from "@mui/material";
 import { motion } from "framer-motion";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
-
 import { useCursorGlow } from "../Components/useCursorGlor";
 
 const MotionBox = motion(Box);
@@ -114,7 +113,7 @@ export default function Home() {
         >
           <Box
             component="img"
-            src="./src/assets/images/profile.jpeg"
+            src="/profile.jpeg"
             alt="Jiban Neupane"
             sx={{
               width: "100%",

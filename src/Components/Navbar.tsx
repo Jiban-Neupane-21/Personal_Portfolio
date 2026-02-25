@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -115,8 +115,8 @@ export default function Navbar() {
           {/* Logo and Name - Show on all screens */}
           <Box sx={{ display: "flex", alignItems: "center", mr: 2 }}>
             <img
-              src="./src/assets/images/logo.jpeg"
-              alt="Profile"
+              src="/logo.jpeg"
+              alt="Logo"
               style={{
                 width: "50px",
                 borderRadius: "50%",
@@ -165,7 +165,7 @@ export default function Navbar() {
         onClose={handleDrawerToggle}
         sx={{
           display: { xs: "block", sm: "none" },
-          
+
           "& .MuiDrawer-paper": {
             boxSizing: "border-box",
             width: "fit-content",
